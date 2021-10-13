@@ -117,7 +117,7 @@ a {
   height: 4px;
   left: 0;
   top: 77px;
-  background: #2196f3;
+  background: var(--blue);
   border-radius: 2px;
 }
 .contacts-list {
@@ -164,11 +164,14 @@ a {
     url('../images/bcg-header.jpg');
 
   background-repeat: no-repeat;
-  max-width: 1600px;
+
+  max-width: 100%;
+  background-size: cover;
   height: 600px;
   background-position: center;
-  margin-right: auto;
-  margin-left: auto;
+
+  /* margin-right: auto;
+  margin-left: auto; */
 }
 .hero-title {
   width: 696px;
@@ -432,8 +435,7 @@ a {
   padding: 0;
   border: none;
   background-color: var(--white);
-  width: 30px;
-  height: 30px;
+
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -444,6 +446,9 @@ a {
   fill: var(--black);
   background-color: var(--white);
   border-radius: 50%;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .data-modal-close:active > .icon-close {
   fill: var(--blue);
@@ -455,7 +460,7 @@ ul {
 label {
   display: block;
 }
-li {
+.input-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -465,7 +470,6 @@ li {
   position: relative;
 }
 .signup-form {
-  box-sizing: border-box;
   margin-right: auto;
   margin-left: auto;
   display: flex;
@@ -479,7 +483,8 @@ li {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
-  color: #757575;
+
+  color: var(--paragraph-contact);
 }
 .signup-text {
   padding: 0;
@@ -491,10 +496,11 @@ li {
   line-height: 1.15;
   text-align: center;
   letter-spacing: 0.03em;
-  color: #212121;
+
+  color: var(--headings);
 }
 
-.input-list li:focus-within svg {
+.input-list li:focus-within .icon-name {
   fill: #2196f3;
 }
 .input-list input:focus {
@@ -508,13 +514,12 @@ li {
   margin-left: auto;
   width: 200px;
   height: 50px;
-  background-color: #2196f3;
-  color: #fff;
+  background-color: var(--blue);
+  color: var(--white);
   border: none;
-  background: #2196f3;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px #00000026;
   border-radius: 4px;
-  box-shadow: 0px 4px 4px 0px #00000026;
 }
 .input-list li {
   margin-bottom: 10px;
@@ -526,11 +531,14 @@ li {
 .input-list input {
   width: 100%;
   height: 40px;
-  padding: 0;
-  padding-left: 40px;
+  padding: 0 0 0 40px;
+
   border: 1px solid rgba(33, 33, 33, 0.2);
-  box-sizing: border-box;
+
   border-radius: 4px;
+  transition-property: outline;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-input {
@@ -541,28 +549,32 @@ li {
   position: absolute;
   top: 11px;
   left: 12px;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-textarea {
+.comment textarea {
   margin-top: 4px;
   height: 120px;
   padding: 12px 16px;
   resize: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
-  box-sizing: border-box;
+
   border-radius: 4px;
+  transition-property: outline;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 textarea::placeholder {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.01em;
 
   color: rgba(117, 117, 117, 0.5);
 }
-textarea:focus {
+.comment textarea:focus {
   outline: 1px solid #2196f3;
   border: transparent;
 }
@@ -580,7 +592,6 @@ textarea:focus::placeholder {
   position: relative;
   height: 24px;
   margin-bottom: 30px;
-  box-sizing: border-box;
 }
 .policy > label {
   position: absolute;
@@ -589,18 +600,14 @@ textarea:focus::placeholder {
   display: flex;
   align-items: center;
   padding-left: 40px;
-  /* outline: 5px dashed blue; */
-  box-sizing: border-box;
 }
 .policy-text {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
-
-  /* outline: 4px solid orangered; */
   letter-spacing: 0.03em;
 
-  color: #757575;
+  color: var(--paragraph-contact);
 }
 .check-input {
   -webkit-appearance: none;
@@ -616,9 +623,12 @@ textarea:focus::placeholder {
   border-radius: 1px;
   border: 2px solid black;
   fill: transparent;
+  transition-property: background-color, fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .check-input:checked + label > .icon-check {
-  background-color: #2196f3;
+  background-color: var(--blue);
   fill: white;
   border: transparent;
 }
@@ -682,18 +692,16 @@ textarea:focus::placeholder {
   align-items: center;
   justify-content: center;
   padding: 10px 28px;
-  background-color: #2196f3;
-  color: #fff;
+  background-color: var(--blue);
+  color: var(--white);
   border: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px #00000026;
   border-radius: 4px;
-  box-shadow: 0px 4px 4px 0px #00000026;
-  font-weight: bold;
+
+  font-weight: 700;
   font-size: 16px;
   line-height: 1.88;
 
-  align-items: center;
-  text-align: center;
   letter-spacing: 0.06em;
 }
 .subscribe b {
@@ -715,9 +723,9 @@ textarea:focus::placeholder {
   padding: 15px 16px;
   margin: 0;
   margin-right: 12px;
-  box-sizing: border-box;
+
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-sizing: border-box;
+
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
   background-color: transparent;
